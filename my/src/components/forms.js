@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-class Forms extends Component {
-  render() {
-    return (
-      <div>Form</div>
-    );
-  }
-}
-
-export default Forms;
+export default ({ user, update, index }) => {
+  return (
+    <tr onClick={() => update({ active: index })}>
+      <td>{user.candidateName}</td>
+      <td>{user.candidateStatus}</td>
+      <td>{user.candidateNeedOffer}</td>
+    </tr>
+  );
+};

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import users from './utils/users.json';
-import Forms from './components/forms';
+
+import styled from 'styled-components';
 
 class App extends Component {
   render() {
@@ -15,26 +15,30 @@ class App extends Component {
 }
 
 export default App;
-// class App extends Component {
-//   constructor(props) {
-//     super(props);
-    // Сразу загружаем данные
-  //   this.loadUser();
-  // }
+ <div style={{width: '90%', margin: '0 auto'}}>
 
-  // loadUser() {
-  //   users(this.props.users).then(users => {
-  //     this.setState({
-  //       users: JSON.parse(users)
-  //     });
-  //   });
-  // }
+          <AuthorList>
+            {this.state.data ? this.state.data.map(author => {
+              return (
+                <ListItem key={author.id}>
+                  #{author.id}, {author.name} <i style={{color:'silver'}}>as {author.email}</i>
+                  <ul>
+                    {author.posts.map(post => {
+                      return(
+                        <ListItem key={post.id}>#{post.id} - {post.title}</ListItem>
+                      )
+                    })}
 
-  // update(config) {
-  //   this.setState(config);
-  // }
+                  </ul>
+                </ListItem>
+              )
+            }) : <Loading>loading...</Loading>}
+          </AuthorList>
 
-//   render() {
-//     return (<div>Hello, World!</div>)
-//   }
-// }
+          {/* data rendering end */}
+
+          {
+            this.state.data ? <DataDebug>{JSON.stringify(this.state.data, null, 2)}</DataDebug> : null
+          }
+
+        </div>

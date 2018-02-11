@@ -6,4 +6,3 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
-// render(<App users='users.json' />, document.getElementById('app'));
