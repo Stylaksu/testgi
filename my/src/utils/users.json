@@ -1,7 +1,5 @@
 {
-  "total_count": 1,
-  "incomplete_results": false,
-  "items":[
+  "users":[
   {
     "candidateName":"Peter Petrov",
     "candidateStatus":"pending",
